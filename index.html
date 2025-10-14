@@ -40,6 +40,34 @@
             padding: 0 20px;
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .language-switcher button {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .language-switcher button:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .language-switcher button.active {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
         /* Header & Navigation */
         header {
             background-color: var(--primary-color);
@@ -67,6 +95,12 @@
 
         .logo span {
             color: var(--accent-color);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         .nav-links {
@@ -552,10 +586,15 @@
         }
 
         @media (max-width: 768px) {
+            .nav-right {
+                flex-direction: column;
+                gap: 10px;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 120px;
                 left: 0;
                 width: 100%;
                 background-color: var(--primary-color);
@@ -579,6 +618,12 @@
             .hero-content h1 {
                 font-size: 2.5rem;
             }
+
+            .language-switcher {
+                position: absolute;
+                top: 15px;
+                right: 60px;
+            }
         }
     </style>
 </head>
@@ -588,14 +633,20 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo">Vincent<span>W.</span></a>
-                <ul class="nav-links">
-                    <li><a href="#accueil">Accueil</a></li>
-                    <li><a href="#apropos">À propos</a></li>
-                    <li><a href="#competences">Compétences</a></li>
-                    <li><a href="#projets">Projets</a></li>
-                    <li><a href="#experience">Expérience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="#accueil" data-fr="Accueil" data-en="Home">Accueil</a></li>
+                        <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
+                        <li><a href="#competences" data-fr="Compétences" data-en="Skills">Compétences</a></li>
+                        <li><a href="#projets" data-fr="Projets" data-en="Projects">Projets</a></li>
+                        <li><a href="#experience" data-fr="Expérience" data-en="Experience">Expérience</a></li>
+                        <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+                    </ul>
+                    <div class="language-switcher">
+                        <button onclick="switchLanguage('fr')" id="btnFr" class="active">FR</button>
+                        <button onclick="switchLanguage('en')" id="btnEn">EN</button>
+                    </div>
+                </div>
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -608,9 +659,12 @@
         <div class="container">
             <div class="hero-content">
                 <h1>WOUANGRE Vincent</h1>
-                <p>Consultant data</p>
-                <p>Je transforme les données en insights stratégiques pour une prise de décision éclairée</p>
-                <a href="#projets" class="btn">Voir mes projets</a>
+                <p data-fr="Consultant data" data-en="Data Consultant">Consultant data</p>
+                <p data-fr="Je transforme les données en insights stratégiques pour une prise de décision éclairée" 
+                   data-en="I transform data into strategic insights for informed decision-making">
+                   Je transforme les données en insights stratégiques pour une prise de décision éclairée
+                </p>
+                <a href="#projets" class="btn" data-fr="Voir mes projets" data-en="View my projects">Voir mes projets</a>
             </div>
         </div>
     </section>
@@ -619,15 +673,27 @@
     <section class="section" id="apropos">
         <div class="container">
             <div class="section-title">
-                <h2>À propos de moi</h2>
+                <h2 data-fr="À propos de moi" data-en="About me">À propos de moi</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Consultant Data passionné par l'innovation</h3>
-                    <p>Je suis un consultant en Business Intelligence, Data Engineering, Data Analysis et gestion de projets data avec une expérience approfondie dans la transformation des données en informations stratégiques.</p>
-                    <p>Mon approche combine une compréhension technique solide des technologies de données avec une vision business pour développer des solutions qui répondent aux besoins spécifiques des organisations.</p>
-                    <p>Je maîtrise l'ensemble de la chaîne de valeur des données, de la collecte et du traitement à la visualisation et à l'analyse, en passant par la mise en place d'infrastructures robustes et évolutives.</p>
-                    <a href="#contact" class="btn">Me contacter</a>
+                    <h3 data-fr="Consultant Data passionné par l'innovation" 
+                        data-en="Data Consultant passionate about innovation">
+                        Consultant Data passionné par l'innovation
+                    </h3>
+                    <p data-fr="Je suis un consultant en Business Intelligence, Data Engineering, Data Analysis et gestion de projets data avec une expérience approfondie dans la transformation des données en informations stratégiques." 
+                       data-en="I am a consultant in Business Intelligence, Data Engineering, Data Analysis and data project management with extensive experience in transforming data into strategic information.">
+                       Je suis un consultant en Business Intelligence, Data Engineering, Data Analysis et gestion de projets data avec une expérience approfondie dans la transformation des données en informations stratégiques.
+                    </p>
+                    <p data-fr="Mon approche combine une compréhension technique solide des technologies de données avec une vision business pour développer des solutions qui répondent aux besoins spécifiques des organisations." 
+                       data-en="My approach combines a solid technical understanding of data technologies with a business vision to develop solutions that meet the specific needs of organizations.">
+                       Mon approche combine une compréhension technique solide des technologies de données avec une vision business pour développer des solutions qui répondent aux besoins spécifiques des organisations.
+                    </p>
+                    <p data-fr="Je maîtrise l'ensemble de la chaîne de valeur des données, de la collecte et du traitement à la visualisation et à l'analyse, en passant par la mise en place d'infrastructures robustes et évolutives." 
+                       data-en="I master the entire data value chain, from collection and processing to visualization and analysis, including the implementation of robust and scalable infrastructures.">
+                       Je maîtrise l'ensemble de la chaîne de valeur des données, de la collecte et du traitement à la visualisation et à l'analyse, en passant par la mise en place d'infrastructures robustes et évolutives.
+                    </p>
+                    <a href="#contact" class="btn" data-fr="Me contacter" data-en="Contact me">Me contacter</a>
                 </div>
                 <div class="about-image">
                     <div style="width: 100%; height: 400px; background-color: #e0e0e0; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #777;">
@@ -642,7 +708,7 @@
     <section class="section skills" id="competences">
         <div class="container">
             <div class="section-title">
-                <h2>Mes Compétences</h2>
+                <h2 data-fr="Mes Compétences" data-en="My Skills">Mes Compétences</h2>
             </div>
             <div class="skills-container">
                 <div class="skill-category">
@@ -723,7 +789,7 @@
                             <div class="skill-progress" style="width: 80%"></div>
                         </div>
                     </div>
-					  <div class="skill-item">
+                    <div class="skill-item">
                         <div class="skill-name">
                             <span>Databricks</span>
                             <span>70%</span>
@@ -732,7 +798,7 @@
                             <div class="skill-progress" style="width: 80%"></div>
                         </div>
                     </div>
-					<div class="skill-item">
+                    <div class="skill-item">
                         <div class="skill-name">
                             <span>DBT</span>
                             <span>65%</span>
@@ -741,8 +807,7 @@
                             <div class="skill-progress" style="width: 80%"></div>
                         </div>
                     </div>
-					
-					<div class="skill-item">
+                    <div class="skill-item">
                         <div class="skill-name">
                             <span>SNOWFLAKE</span>
                             <span>50%</span>
@@ -773,7 +838,6 @@
                             <div class="skill-progress" style="width: 85%"></div>
                         </div>
                     </div>
-               
                     <div class="skill-item">
                         <div class="skill-name">
                             <span>Machine Learning</span>
@@ -786,7 +850,7 @@
                 </div>
 
                 <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Technologies & Outils</h3>
+                    <h3><i class="fas fa-cloud"></i> <span data-fr="Technologies & Outils" data-en="Technologies & Tools">Technologies & Outils</span></h3>
                     <div class="skill-item">
                         <div class="skill-name">
                             <span>SAP /4 Hana</span>
@@ -805,7 +869,7 @@
                             <div class="skill-progress" style="width: 75%"></div>
                         </div>
                     </div>
-				   <div class="skill-item">
+                    <div class="skill-item">
                         <div class="skill-name">
                             <span>AZURE</span>
                             <span>50%</span>
@@ -814,14 +878,13 @@
                             <div class="skill-progress" style="width: 75%"></div>
                         </div>
                     </div>
- 
                 </div>
-				
-	         <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Métier</h3>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-briefcase"></i> <span data-fr="Métier" data-en="Industry">Métier</span></h3>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>Banque</span>
+                            <span data-fr="Banque" data-en="Banking">Banque</span>
                             <span>80%</span>
                         </div>
                         <div class="skill-bar">
@@ -830,23 +893,22 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>Retail Electroménager Livraison SAV RCD Cusine</span>
+                            <span data-fr="Retail Electroménager Livraison SAV RCD Cusine" data-en="Retail Home Appliances Delivery After-Sales">Retail Electroménager Livraison SAV RCD Cusine</span>
                             <span>75%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" style="width: 75%"></div>
                         </div>
                     </div>
-				   <div class="skill-item">
+                    <div class="skill-item">
                         <div class="skill-name">
-                            <span>Energies renouvelables</span>
+                            <span data-fr="Energies renouvelables" data-en="Renewable Energy">Energies renouvelables</span>
                             <span>50%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" style="width: 75%"></div>
                         </div>
                     </div>
- 
                 </div>
             </div>
         </div>
@@ -856,7 +918,7 @@
     <section class="section" id="projets">
         <div class="container">
             <div class="section-title">
-                <h2>Mes Projets</h2>
+                <h2 data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
@@ -864,15 +926,22 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Tableau de Bord des trajets de taxi de  NYC New York City</h3>
-                        <p>Création d'un tableau de bord interactif pour le suivi des performances et d'un tableau de bord prédictif.</p>
+                        <h3 data-fr="Tableau de Bord des trajets de taxi de NYC New York City" 
+                            data-en="NYC New York City Taxi Trips Dashboard">
+                            Tableau de Bord des trajets de taxi de NYC New York City
+                        </h3>
+                        <p data-fr="Création d'un tableau de bord interactif pour le suivi des performances et d'un tableau de bord prédictif." 
+                           data-en="Creation of an interactive dashboard for performance tracking and a predictive dashboard.">
+                           Création d'un tableau de bord interactif pour le suivi des performances et d'un tableau de bord prédictif.
+                        </p>
                         <div class="project-tags">
                             <span class="project-tag">Looker Studio</span>
                             <span class="project-tag">SQL</span>
                             <span class="project-tag">Biquery</span>
-							<span class="project-tag">BiqueryMl</span>
+                            <span class="project-tag">BiqueryMl</span>
                         </div>
-                        <a href="https://lookerstudio.google.com/reporting/97d07af6-e8dd-4bfb-aa64-93191da8271b/page/g6rIF" class="btn">Voir le projet : Tableau de Bord des trajets de taxi de  NYC New York City</a>
+                        <a href="https://lookerstudio.google.com/reporting/97d07af6-e8dd-4bfb-aa64-93191da8271b/page/g6rIF" class="btn" 
+                           data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
 
@@ -881,16 +950,20 @@
                         <i class="fas fa-database"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Pipeline de données ETL</h3>
-                        <p>Pipeline ELT complet pour l'ingestion, la transformation et l'analyse des données des taxis verts de NYC, avec modélisation ML dans BigQuery.</p>
+                        <h3 data-fr="Pipeline de données ETL" data-en="ETL Data Pipeline">Pipeline de données ETL</h3>
+                        <p data-fr="Pipeline ELT complet pour l'ingestion, la transformation et l'analyse des données des taxis verts de NYC, avec modélisation ML dans BigQuery." 
+                           data-en="Complete ELT pipeline for ingestion, transformation and analysis of NYC green taxi data, with ML modeling in BigQuery.">
+                           Pipeline ELT complet pour l'ingestion, la transformation et l'analyse des données des taxis verts de NYC, avec modélisation ML dans BigQuery.
+                        </p>
                         <div class="project-tags">
                             <span class="project-tag">Apache Airflow</span>
                             <span class="project-tag">BigQuery</span>
                             <span class="project-tag">GCP</span>
-							 <span class="project-tag">DAG</span>
-							 <span class="project-tag">Machine learning BigqueryML</span>
+                            <span class="project-tag">DAG</span>
+                            <span class="project-tag">Machine learning BigqueryML</span>
                         </div>
-                        <a href="https://github.com/wouangre/gcp_data_engineering_elt_pipeline_nyc_green_taxis" class="btn" target="_blank">Voir le projet : GCP Data Engineering ELT Pipeline NYC Green Taxis</a>
+                        <a href="https://github.com/wouangre/gcp_data_engineering_elt_pipeline_nyc_green_taxis" class="btn" target="_blank" 
+                           data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
 
@@ -899,47 +972,63 @@
                         <i class="fas fa-chart-pie"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Les partitions dans Bigquery</h3>
-                        <p>Projet Bigquery DDL DML avec partitions par date.</p>
+                        <h3 data-fr="Les partitions dans Bigquery" data-en="Partitions in Bigquery">Les partitions dans Bigquery</h3>
+                        <p data-fr="Projet Bigquery DDL DML avec partitions par date." 
+                           data-en="Bigquery DDL DML project with date partitions.">
+                           Projet Bigquery DDL DML avec partitions par date.
+                        </p>
                         <div class="project-tags">
                             <span class="project-tag">Bigquery</span>
                             <span class="project-tag">Partitions</span>
                             <span class="project-tag">Performance</span>
-							<span class="project-tag">DML DDL</span>
+                            <span class="project-tag">DML DDL</span>
                         </div>
-                        <a href="https://github.com/wouangre/My-Bigquery-DDL-DML-project-with-date-partition" class="btn">Voir le projet :Les partitions dans Bigquery</a>
+                        <a href="https://github.com/wouangre/My-Bigquery-DDL-DML-project-with-date-partition" class="btn" 
+                           data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
-				<div class="project-card">
+
+                <div class="project-card">
                     <div class="project-image" style="background-color: #e74c3c;">
                         <i class="fas fa-chart-pie"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Analyse exploratoire via Pyspark</h3>
-                        <p>Analyse de données sur les crimes ayant été commis à Chicago depuis 2001 à août 2024. Le fichier CSV téléchargé comporte plus de 8 millions de lignes. On utilisera Pyspark pour sa rapidité sur Pandas.</p>
+                        <h3 data-fr="Analyse exploratoire via Pyspark" data-en="Exploratory Analysis via Pyspark">Analyse exploratoire via Pyspark</h3>
+                        <p data-fr="Analyse de données sur les crimes ayant été commis à Chicago depuis 2001 à août 2024. Le fichier CSV téléchargé comporte plus de 8 millions de lignes. On utilisera Pyspark pour sa rapidité sur Pandas." 
+                           data-en="Data analysis on crimes committed in Chicago from 2001 to August 2024. The downloaded CSV file contains over 8 million rows. We will use Pyspark for its speed over Pandas.">
+                           Analyse de données sur les crimes ayant été commis à Chicago depuis 2001 à août 2024. Le fichier CSV téléchargé comporte plus de 8 millions de lignes. On utilisera Pyspark pour sa rapidité sur Pandas.
+                        </p>
                         <div class="project-tags">
                             <span class="project-tag">Pyspark</span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">Dataframe</span>
                         </div>
-                        <a href="https://github.com/wouangre/Pyspark/tree/main" class="btn">Voir le projet :  Analyse exploratoire via Pyspark</a>
+                        <a href="https://github.com/wouangre/Pyspark/tree/main" class="btn" 
+                           data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
-				
-				<div class="project-card">
+                
+                <div class="project-card">
                     <div class="project-image" style="background-color: #e74c3c;">
                         <i class="fas fa-chart-pie"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Déploiement d'un modèle de machine learning sur FastAPI</h3>
-                        <p>Notre modèle de classification cherche à prédire une espèce de fleur en fonction de ses caractéristiques : longueur et largeur du calice et des pétales.</p>
+                        <h3 data-fr="Déploiement d'un modèle de machine learning sur FastAPI" 
+                            data-en="Deployment of a machine learning model on FastAPI">
+                            Déploiement d'un modèle de machine learning sur FastAPI
+                        </h3>
+                        <p data-fr="Notre modèle de classification cherche à prédire une espèce de fleur en fonction de ses caractéristiques : longueur et largeur du calice et des pétales." 
+                           data-en="Our classification model seeks to predict a flower species based on its characteristics: sepal and petal length and width.">
+                           Notre modèle de classification cherche à prédire une espèce de fleur en fonction de ses caractéristiques : longueur et largeur du calice et des pétales.
+                        </p>
                         <div class="project-tags">
-                            <span class="project-tag">Bibliothèques sklearn, numpy, joblib </span>
+                            <span class="project-tag" data-fr="Bibliothèques sklearn, numpy, joblib" data-en="Libraries sklearn, numpy, joblib">Bibliothèques sklearn, numpy, joblib</span>
                             <span class="project-tag">Python</span>
-                            <span class="project-tag">Modèle de regression logistique</span>
-							<span class="project-tag">FastAPI</span>
+                            <span class="project-tag" data-fr="Modèle de regression logistique" data-en="Logistic regression model">Modèle de regression logistique</span>
+                            <span class="project-tag">FastAPI</span>
                         </div>
-                        <a href="https://github.com/wouangre/deployment-of-a-machine-learning-model-through-fastAPI/tree/main" class="btn">Voir le projet : Déploiement d'un modèle de machine learning sur FastAPI </a>
+                        <a href="https://github.com/wouangre/deployment-of-a-machine-learning-model-through-fastAPI/tree/main" class="btn" 
+                           data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
             </div>
@@ -950,31 +1039,40 @@
     <section class="section experience" id="experience">
         <div class="container">
             <div class="section-title">
-                <h2>Mon Expérience</h2>
+                <h2 data-fr="Mon Expérience" data-en="My Experience">Mon Expérience</h2>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Consultant Data Senior</h3>
-                        <div class="date">2023 - Présent</div>
-                        <p>Conception et mise en œuvre de solutions data pour divers clients, incluant la création de pipelines de données, le développement de tableaux de bord et l'analyse de données.</p>
-                        <p><strong>Technologies:</strong> GCP, Apache Airflow, BigQuery, Looker Studio, python</p>
+                        <h3 data-fr="Consultant Data Senior" data-en="Senior Data Consultant">Consultant Data Senior</h3>
+                        <div class="date" data-fr="2023 - Présent" data-en="2023 - Present">2023 - Présent</div>
+                        <p data-fr="Conception et mise en œuvre de solutions data pour divers clients, incluant la création de pipelines de données, le développement de tableaux de bord et l'analyse de données." 
+                           data-en="Design and implementation of data solutions for various clients, including data pipeline creation, dashboard development and data analysis.">
+                           Conception et mise en œuvre de solutions data pour divers clients, incluant la création de pipelines de données, le développement de tableaux de bord et l'analyse de données.
+                        </p>
+                        <p><strong data-fr="Technologies:" data-en="Technologies:">Technologies:</strong> GCP, Apache Airflow, BigQuery, Looker Studio, python</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Data Engineer</h3>
                         <div class="date">2017 - 2024</div>
-                        <p>Développement et maintenance de pipelines de données, optimisation des processus ETL et collaboration avec les équipes d'analyse pour fournir des données de qualité.</p>
-                        <p><strong>Technologies:</strong> Talend, Teradata, GCP, Bigquery, SQL, Dataproc, Mysql, Siebel, AS400, DB2, Oracle,Shell,MSSQL server, TAC Talend</p>
+                        <p data-fr="Développement et maintenance de pipelines de données, optimisation des processus ETL et collaboration avec les équipes d'analyse pour fournir des données de qualité." 
+                           data-en="Development and maintenance of data pipelines, ETL process optimization and collaboration with analysis teams to provide quality data.">
+                           Développement et maintenance de pipelines de données, optimisation des processus ETL et collaboration avec les équipes d'analyse pour fournir des données de qualité.
+                        </p>
+                        <p><strong data-fr="Technologies:" data-en="Technologies:">Technologies:</strong> Talend, Teradata, GCP, Bigquery, SQL, Dataproc, Mysql, Siebel, AS400, DB2, Oracle, Shell, MSSQL server, TAC Talend</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Data Analyst</h3>
                         <div class="date">2024 - 2025</div>
-                        <p>Analyse de données business, création de rapports et tableaux de bord, et support à la prise de décision stratégique.</p>
-                        <p><strong>Technologies:</strong> Maximo, Birt,SQL, IntelliJ, Java, Javascript</p>
+                        <p data-fr="Analyse de données business, création de rapports et tableaux de bord, et support à la prise de décision stratégique." 
+                           data-en="Business data analysis, report and dashboard creation, and support for strategic decision-making.">
+                           Analyse de données business, création de rapports et tableaux de bord, et support à la prise de décision stratégique.
+                        </p>
+                        <p><strong data-fr="Technologies:" data-en="Technologies:">Technologies:</strong> Maximo, Birt, SQL, IntelliJ, Java, Javascript</p>
                     </div>
                 </div>
             </div>
@@ -989,8 +1087,11 @@
             </div>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Travaillons ensemble</h3>
-                    <p>N'hésitez pas à me contacter pour discuter de vos projets data ou pour toute opportunité de collaboration.</p>
+                    <h3 data-fr="Travaillons ensemble" data-en="Let's work together">Travaillons ensemble</h3>
+                    <p data-fr="N'hésitez pas à me contacter pour discuter de vos projets data ou pour toute opportunité de collaboration." 
+                       data-en="Feel free to contact me to discuss your data projects or any collaboration opportunities.">
+                       N'hésitez pas à me contacter pour discuter de vos projets data ou pour toute opportunité de collaboration.
+                    </p>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
@@ -1001,14 +1102,14 @@
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <div>
-                            <h4>Téléphone</h4>
+                            <h4 data-fr="Téléphone" data-en="Phone">Téléphone</h4>
                             <p>07 69 93 31 89</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4>Localisation</h4>
+                            <h4 data-fr="Localisation" data-en="Location">Localisation</h4>
                             <p>Paris, France</p>
                         </div>
                     </div>
@@ -1024,7 +1125,7 @@
                     <div id="formMessage" class="form-message"></div>
                     <form id="contactForm" action="https://formspree.io/f/mpwyojzp" method="POST">
                         <div class="form-group">
-                            <label for="name">Nom</label>
+                            <label for="name" data-fr="Nom" data-en="Name">Nom</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
@@ -1032,14 +1133,15 @@
                             <input type="email" id="email" name="_replyto" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Sujet</label>
+                            <label for="subject" data-fr="Sujet" data-en="Subject">Sujet</label>
                             <input type="text" id="subject" name="_subject" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn" id="submitBtn">Envoyer le message</button>
+                        <button type="submit" class="btn" id="submitBtn" 
+                                data-fr="Envoyer le message" data-en="Send message">Envoyer le message</button>
                     </form>
                 </div>
             </div>
@@ -1057,12 +1159,46 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 WOUANGRE Vincent. Tous droits réservés.</p>
+                <p data-fr="&copy; 2025 WOUANGRE Vincent. Tous droits réservés." 
+                   data-en="&copy; 2025 WOUANGRE Vincent. All rights reserved.">&copy; 2025 WOUANGRE Vincent. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Language Switcher
+        let currentLang = 'fr';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Update button states
+            document.getElementById('btnFr').classList.toggle('active', lang === 'fr');
+            document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-fr][data-en]').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = text;
+                } else {
+                    element.textContent = text;
+                }
+            });
+            
+            // Save preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Load saved language preference
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            if (savedLang !== 'fr') {
+                switchLanguage(savedLang);
+            }
+        });
+
         // Navigation mobile
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -1114,9 +1250,24 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            const messages = {
+                fr: {
+                    sending: 'Envoi en cours...',
+                    success: '✓ Merci pour votre message! Je vous répondrai dans les plus brefs délais.',
+                    error: '✗ Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement à wouangre@kemkhet.com',
+                    send: 'Envoyer le message'
+                },
+                en: {
+                    sending: 'Sending...',
+                    success: '✓ Thank you for your message! I will respond as soon as possible.',
+                    error: '✗ An error occurred while sending the message. Please try again or contact me directly at wouangre@kemkhet.com',
+                    send: 'Send message'
+                }
+            };
+            
             // Désactiver le bouton pendant l'envoi
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.textContent = messages[currentLang].sending;
             
             // Récupérer les données du formulaire
             const formData = new FormData(form);
@@ -1132,7 +1283,7 @@
                 
                 if (response.ok) {
                     // Afficher le message de succès
-                    formMessage.textContent = '✓ Merci pour votre message! Je vous répondrai dans les plus brefs délais.';
+                    formMessage.textContent = messages[currentLang].success;
                     formMessage.className = 'form-message success';
                     
                     // Réinitialiser le formulaire
@@ -1147,7 +1298,7 @@
                 }
             } catch (error) {
                 // Afficher le message d'erreur
-                formMessage.textContent = '✗ Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement à wouangre@kemkhet.com';
+                formMessage.textContent = messages[currentLang].error;
                 formMessage.className = 'form-message error';
                 
                 // Masquer le message après 7 secondes
@@ -1157,7 +1308,7 @@
             } finally {
                 // Réactiver le bouton
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Envoyer le message';
+                submitBtn.textContent = messages[currentLang].send;
             }
         });
     </script>
