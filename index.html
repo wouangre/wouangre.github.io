@@ -15,619 +15,141 @@
             --text-color: #333;
             --text-light: #777;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f9f9f9;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { line-height: 1.6; color: var(--text-color); background-color: #f9f9f9; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         /* Language Switcher */
-        .language-switcher {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .language-switcher button {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .language-switcher button:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-
-        .language-switcher button.active {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #16a085;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:disabled {
-            background-color: #95a5a6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* About Section */
-        .section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 3px;
-            background-color: var(--accent-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-        }
-
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Skills Section */
-        .skills {
-            background-color: var(--light-color);
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-category {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-10px);
-        }
-
-        .skill-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-        }
-
-        .skill-category h3 i {
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-
-        .skill-item {
-            margin-bottom: 15px;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .skill-bar {
-            height: 8px;
-            background-color: #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background-color: var(--accent-color);
-            border-radius: 4px;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-image {
-            height: 200px;
-            background-color: var(--secondary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .project-content p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .project-tag {
-            background-color: var(--light-color);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--primary-color);
-        }
-
-        /* Experience Section */
-        .experience {
-            background-color: var(--light-color);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--accent-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .timeline-content h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        .timeline-content .date {
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid var(--accent-color);
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--light-color);
-        }
-
-        .contact-container {
-            display: flex;
-            gap: 50px;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .contact-item i {
-            width: 40px;
-            height: 40px;
-            background-color: var(--accent-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-
-        .contact-form {
-            flex: 1;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        .form-message {
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            display: none;
-            text-align: center;
-        }
-
-        .form-message.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
-
-        .form-message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
+        .language-switcher { display: flex; gap: 10px; align-items: center; }
+        .language-switcher button { background: transparent; border: 2px solid white; color: white; padding: 5px 15px; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .language-switcher button:hover { background-color: var(--accent-color); border-color: var(--accent-color); }
+        .language-switcher button.active { background-color: var(--accent-color); border-color: var(--accent-color); }
+
+        /* Header */
+        header { background-color: var(--primary-color); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; }
+        .logo span { color: var(--accent-color); }
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent-color); }
+        .hamburger { display: none; cursor: pointer; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 150px 0 100px; text-align: center; }
+        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; }
+
+        /* Buttons */
+        .btn { display: inline-block; background-color: var(--accent-color); color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: 600; transition: all 0.3s; border: none; cursor: pointer; }
+        .btn:hover { background-color: #16a085; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn:disabled { background-color: #95a5a6; cursor: not-allowed; transform: none; }
+
+        /* Sections */
+        .section { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; position: relative; display: inline-block; }
+        .section-title h2::after { content: ''; position: absolute; width: 70px; height: 3px; background-color: var(--accent-color); bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        /* About */
+        .about-content { display: flex; align-items: center; gap: 50px; }
+        .about-text { flex: 1; }
+        .about-text h3 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+        .about-text p { margin-bottom: 1.5rem; color: var(--text-light); }
+        .about-image { flex: 1; text-align: center; }
+        .about-image img { max-width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* Skills */
+        .skills { background-color: var(--light-color); }
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .skill-category { background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .skill-category:hover { transform: translateY(-10px); }
+        .skill-category h3 { font-size: 1.5rem; margin-bottom: 20px; color: var(--primary-color); display: flex; align-items: center; }
+        .skill-category h3 i { margin-right: 10px; color: var(--accent-color); }
+        .skill-item { margin-bottom: 15px; }
+        .skill-name { display: flex; justify-content: space-between; margin-bottom: 5px; }
+        .skill-bar { height: 8px; background-color: #e0e0e0; border-radius: 4px; overflow: hidden; }
+        .skill-progress { height: 100%; background-color: var(--accent-color); border-radius: 4px; }
+        .cert-badge { margin-top: 20px; padding: 15px; background-color: var(--light-color); border-radius: 8px; border-left: 4px solid var(--accent-color); }
+        .cert-badge p { font-size: 0.9rem; color: var(--text-light); margin-top: 6px; }
+        .cert-badge .cert-title { font-weight: 600; color: var(--primary-color); margin-bottom: 6px; }
+
+        /* Projects */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        .project-card { background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-10px); }
+        .project-image { height: 200px; background-color: var(--secondary-color); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+        .project-content { padding: 20px; }
+        .project-content h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--primary-color); }
+        .project-content p { color: var(--text-light); margin-bottom: 15px; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+        .project-tag { background-color: var(--light-color); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; color: var(--primary-color); }
+
+        /* Experience / Timeline */
+        .experience { background-color: var(--light-color); }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 6px; background-color: var(--accent-color); top: 0; bottom: 0; left: 50%; margin-left: -3px; }
+        .timeline-item { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-content { padding: 20px 30px; background-color: white; position: relative; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .timeline-content h3 { margin-top: 0; color: var(--primary-color); }
+        .timeline-content .date { font-weight: bold; color: var(--accent-color); }
+        .timeline-content ul { margin: 10px 0 10px 18px; }
+        .timeline-content ul li { margin-bottom: 6px; color: var(--text-light); font-size: 0.95rem; }
+        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; background-color: white; border: 4px solid var(--accent-color); border-radius: 50%; top: 15px; z-index: 1; }
+        .timeline-item:nth-child(odd)::after { right: -10px; }
+        .timeline-item:nth-child(even)::after { left: -10px; }
+
+        /* Contact */
+        .contact { background-color: var(--light-color); }
+        .contact-container { display: flex; gap: 50px; }
+        .contact-info { flex: 1; }
+        .contact-info h3 { font-size: 1.5rem; margin-bottom: 20px; color: var(--primary-color); }
+        .contact-item { display: flex; align-items: center; margin-bottom: 20px; }
+        .contact-item i { width: 40px; height: 40px; background-color: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; }
+        .contact-form { flex: 1; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
+        .form-group textarea { height: 150px; resize: vertical; }
+        .form-message { padding: 15px; border-radius: 5px; margin-bottom: 20px; display: none; text-align: center; }
+        .form-message.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: block; }
+        .form-message.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block; }
 
         /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
+        footer { background-color: var(--primary-color); color: white; padding: 50px 0 20px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .social-links { display: flex; gap: 15px; }
+        .social-links a { color: white; font-size: 1.2rem; transition: color 0.3s; }
+        .social-links a:hover { color: var(--accent-color); }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: rgba(255,255,255,0.7); }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-
-            .contact-container {
-                flex-direction: column;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-item:nth-child(odd)::after,
-            .timeline-item:nth-child(even)::after {
-                left: 21px;
-            }
+            .about-content { flex-direction: column; }
+            .contact-container { flex-direction: column; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-item:nth-child(odd)::after, .timeline-item:nth-child(even)::after { left: 21px; }
         }
-
         @media (max-width: 768px) {
-            .nav-right {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 120px;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-color);
-                flex-direction: column;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                margin: 10px 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .language-switcher {
-                position: absolute;
-                top: 15px;
-                right: 60px;
-            }
+            .nav-right { flex-direction: column; gap: 10px; }
+            .nav-links { display: none; position: absolute; top: 120px; left: 0; width: 100%; background-color: var(--primary-color); flex-direction: column; padding: 20px; text-align: center; }
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 10px 0; }
+            .hamburger { display: block; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .language-switcher { position: absolute; top: 15px; right: 60px; }
         }
     </style>
 </head>
 <body>
+
     <!-- Header & Navigation -->
     <header>
         <div class="container">
@@ -647,9 +169,7 @@
                         <button onclick="switchLanguage('en')" id="btnEn">EN</button>
                     </div>
                 </div>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
             </nav>
         </div>
     </header>
@@ -659,10 +179,13 @@
         <div class="container">
             <div class="hero-content">
                 <h1>WOUANGRE Vincent</h1>
-                <p data-fr="Consultant data" data-en="Data Consultant">Consultant data, consultant gestion de projet, mise en place de système de gestion</p>
-                <p data-fr="Je transforme les données en insights stratégiques pour une prise de décision éclairée, je mets en place les systèmes de gestion" 
+                <p data-fr="Consultant Data | Gestion de Projet | Systèmes de Gestion"
+                   data-en="Data Consultant | Project Management | Management Systems">
+                   Consultant Data | Gestion de Projet | Systèmes de Gestion
+                </p>
+                <p data-fr="Je transforme les données en insights stratégiques pour une prise de décision éclairée. Je mets en place les systèmes de gestion."
                    data-en="I transform data into strategic insights for informed decision-making, and I implement management systems.">
-                   Je transforme les données en insights stratégiques pour une prise de décision éclairée. Je mets en place les systèmes de gestion
+                   Je transforme les données en insights stratégiques pour une prise de décision éclairée. Je mets en place les systèmes de gestion.
                 </p>
                 <a href="#projets" class="btn" data-fr="Voir mes projets" data-en="View my projects">Voir mes projets</a>
             </div>
@@ -677,27 +200,27 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3 data-fr="Consultant Data passionné par l'innovation, consultant gestion de projet, mise en place de système de gestion" 
+                    <h3 data-fr="Consultant Data passionné par l'innovation, consultant gestion de projet, mise en place de système de gestion"
                         data-en="Data consultant passionate about innovation, project management consultant, implementation of management systems">
-                        Consultant data, consultant gestion de projet, mise en place de système de gestion
+                        Consultant Data passionné par l'innovation, consultant gestion de projet, mise en place de système de gestion
                     </h3>
-                    <p data-fr="Je suis un consultant en Business Intelligence, Data Engineering, Data Analysis et gestion de projets data avec une expérience approfondie dans la transformation des données en informations stratégiques." 
+                    <p data-fr="Je suis un consultant en Business Intelligence, Data Engineering, Data Analysis et gestion de projets data avec une expérience approfondie dans la transformation des données en informations stratégiques."
                        data-en="I am a consultant in Business Intelligence, Data Engineering, Data Analysis and data project management with extensive experience in transforming data into strategic information.">
                        Je suis un consultant en Business Intelligence, Data Engineering, Data Analysis et gestion de projets data avec une expérience approfondie dans la transformation des données en informations stratégiques.
                     </p>
-                    <p data-fr="Mon approche combine une compréhension technique solide des technologies de données avec une vision business pour développer des solutions qui répondent aux besoins spécifiques des organisations." 
+                    <p data-fr="Mon approche combine une compréhension technique solide des technologies de données avec une vision business pour développer des solutions qui répondent aux besoins spécifiques des organisations."
                        data-en="My approach combines a solid technical understanding of data technologies with a business vision to develop solutions that meet the specific needs of organizations.">
                        Mon approche combine une compréhension technique solide des technologies de données avec une vision business pour développer des solutions qui répondent aux besoins spécifiques des organisations.
                     </p>
-                    <p data-fr="Je maîtrise l'ensemble de la chaîne de valeur des données, de la collecte et du traitement à la visualisation et à l'analyse, en passant par la mise en place d'infrastructures robustes et évolutives." 
+                    <p data-fr="Je maîtrise l'ensemble de la chaîne de valeur des données, de la collecte et du traitement à la visualisation et à l'analyse, en passant par la mise en place d'infrastructures robustes et évolutives."
                        data-en="I master the entire data value chain, from collection and processing to visualization and analysis, including the implementation of robust and scalable infrastructures.">
                        Je maîtrise l'ensemble de la chaîne de valeur des données, de la collecte et du traitement à la visualisation et à l'analyse, en passant par la mise en place d'infrastructures robustes et évolutives.
                     </p>
                     <a href="#contact" class="btn" data-fr="Me contacter" data-en="Contact me">Me contacter</a>
                 </div>
                 <div class="about-image">
-                    <div style="width: 100%; height: 400px; background-color: #e0e0e0; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #777;">
-                        <i class="fas fa-user" style="font-size: 5rem;"></i>
+                    <div style="width:100%;height:400px;background-color:#e0e0e0;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#777;">
+                        <i class="fas fa-user" style="font-size:5rem;"></i>
                     </div>
                 </div>
             </div>
@@ -711,245 +234,161 @@
                 <h2 data-fr="Mes Compétences" data-en="My Skills">Mes Compétences</h2>
             </div>
             <div class="skills-container">
+
+                <!-- Business Intelligence -->
                 <div class="skill-category">
                     <h3><i class="fas fa-chart-line"></i> Business Intelligence</h3>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Looker Studio</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
+                        <div class="skill-name"><span>Looker Studio</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Power BI</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
+                        <div class="skill-name"><span>Power BI</span><span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Qlik Sense</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                        <div class="skill-name"><span>Qlik Sense</span><span>70%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Birt</span>
-                            <span>100%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
+                        <div class="skill-name"><span>Birt</span><span>100%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
                     </div>
                 </div>
 
+                <!-- Data Engineering -->
                 <div class="skill-category">
                     <h3><i class="fas fa-database"></i> Data Engineering</h3>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>GCP</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
+                        <div class="skill-name"><span>GCP</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Apache Airflow</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                        <div class="skill-name"><span>Apache Airflow</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>BigQuery</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
+                        <div class="skill-name"><span>BigQuery</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Talend</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                        <div class="skill-name"><span>Talend</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Databricks</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                        <div class="skill-name"><span>Databricks</span><span>70%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>DBT</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                        <div class="skill-name"><span>DBT</span><span>65%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>SNOWFLAKE</span>
-                            <span>50%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                        <div class="skill-name"><span>Snowflake</span><span>50%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
                     </div>
                 </div>
 
+                <!-- Data Analysis -->
                 <div class="skill-category">
                     <h3><i class="fas fa-chart-bar"></i> Data Analysis</h3>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>SQL</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
+                        <div class="skill-name"><span>SQL</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Python</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
+                        <div class="skill-name"><span>Python</span><span>65%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Machine Learning</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
+                        <div class="skill-name"><span>Machine Learning</span><span>65%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
                     </div>
                 </div>
 
+                <!-- Technologies & Outils -->
                 <div class="skill-category">
                     <h3><i class="fas fa-cloud"></i> <span data-fr="Technologies & Outils" data-en="Technologies & Tools">Technologies & Outils</span></h3>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>SAP /4 Hana</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                        <div class="skill-name"><span>SAP S/4 Hana</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>AWS</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
+                        <div class="skill-name"><span>AWS</span><span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>AZURE</span>
-                            <span>50%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
+                        <div class="skill-name"><span>Azure</span><span>50%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
                     </div>
                 </div>
-                
+
+                <!-- Métier / Industry -->
                 <div class="skill-category">
                     <h3><i class="fas fa-briefcase"></i> <span data-fr="Métier" data-en="Industry">Métier</span></h3>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span data-fr="Banque" data-en="Banking">Banque</span>
-                            <span>80%</span>
+                            <span data-fr="Banque" data-en="Banking">Banque</span><span>80%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span data-fr="Retail Electroménager Livraison SAV RCD Cusine" data-en="Retail Home Appliances Delivery After-Sales">Retail Electroménager Livraison SAV RCD Cusine</span>
-                            <span>75%</span>
+                            <span data-fr="Retail Électroménager Livraison SAV" data-en="Retail Home Appliances Delivery After-Sales">Retail Électroménager Livraison SAV</span><span>75%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span data-fr="Energies renouvelables" data-en="Renewable Energy">Energies renouvelables</span>
-                            <span>50%</span>
+                            <span data-fr="Énergies renouvelables" data-en="Renewable Energy">Énergies renouvelables</span><span>50%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
                     </div>
                 </div>
-				<!-- Nouvelle carte : Gestion de Projets -->
-<div class="skill-category">
-    <h3>
-        <i class="fas fa-tasks"></i>
-        <span data-fr="Gestion de Projets" data-en="Project Management">Gestion de Projets</span>
-    </h3>
 
-    <!-- Barre de compétence PMP -->
-    <div class="skill-item">
-        <div class="skill-name">
-            <span data-fr="Gestion de projets (PMP)" data-en="Project Management (PMP)">Gestion de projets (PMP)</span>
-            <span>85%</span>
-        </div>
-        <div class="skill-bar">
-            <div class="skill-progress" style="width: 85%"></div>
-        </div>
-    </div>
+                <!-- Gestion de Projets / Project Management -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-tasks"></i> <span data-fr="Gestion de Projets" data-en="Project Management">Gestion de Projets</span></h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-fr="Gestion de projets (PMP)" data-en="Project Management (PMP)">Gestion de projets (PMP)</span><span>85%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-fr="Planification & Pilotage" data-en="Planning & Steering">Planification & Pilotage</span><span>80%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-fr="Gestion des risques" data-en="Risk Management">Gestion des risques</span><span>75%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
+                    </div>
+                    <!-- Certification badge -->
+                    <div class="cert-badge">
+                        <p class="cert-title">
+                            <i class="fas fa-certificate" style="color:var(--accent-color);margin-right:8px;"></i>
+                            <span data-fr="Certification" data-en="Certification">Certification</span>
+                        </p>
+                        <p>
+                            🏅 <span data-fr="PMP Certificate of Completion – TIA (The Institute of Agile)"
+                                     data-en="PMP Certificate of Completion – TIA (The Institute of Agile)">
+                                PMP Certificate of Completion – TIA (The Institute of Agile)
+                            </span>
+                        </p>
+                        <p>
+                            <span data-fr="Compétences couvertes : Initiation, Planification, Exécution, Surveillance & Maîtrise, Clôture, Gestion des risques, EVM, Chemin critique."
+                                  data-en="Skills covered: Initiation, Planning, Execution, Monitoring & Controlling, Closure, Risk Management, EVM, Critical Path.">
+                                Compétences couvertes : Initiation, Planification, Exécution, Surveillance & Maîtrise, Clôture, Gestion des risques, EVM, Chemin critique.
+                            </span>
+                        </p>
+                    </div>
+                </div>
 
-    <!-- Badge / certification -->
-    <div style="margin-top: 20px; padding: 15px; background-color: var(--light-color); border-radius: 8px; border-left: 4px solid var(--accent-color);">
-        <p style="font-weight: 600; color: var(--primary-color); margin-bottom: 6px;">
-            <i class="fas fa-certificate" style="color: var(--accent-color); margin-right: 8px;"></i>
-            <span data-fr="Certifications" data-en="Certifications">Certifications</span>
-        </p>
-        <p style="font-size: 0.9rem; color: var(--text-light);">
-            🏅 <span data-fr="PMP Certificate of Completion – TIA (The Institute of Agile)" 
-                     data-en="PMP Certificate of Completion – TIA (The Institute of Agile)">
-                PMP Certificate of Completion – TIA (The Institute of Agile)
-            </span>
-        </p>
-        <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 6px;">
-            <span data-fr="Compétences couvertes : Initiation, Planification, Exécution, Surveillance &amp; Maîtrise, Clôture de projet, Gestion des risques, EVM, Chemin critique."
-                  data-en="Skills covered: Initiation, Planning, Execution, Monitoring &amp; Controlling, Project Closure, Risk Management, EVM, Critical Path.">
-                Compétences couvertes : Initiation, Planification, Exécution, Surveillance &amp; Maîtrise, Clôture de projet, Gestion des risques, EVM, Chemin critique.
-            </span>
-        </p>
-    </div>
-</div>
-<!-- Fin carte Gestion de Projets -->
-            </div>
+            </div><!-- end skills-container -->
         </div>
     </section>
 
@@ -960,37 +399,33 @@
                 <h2 data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
             </div>
             <div class="projects-grid">
+
                 <div class="project-card">
-                    <div class="project-image" style="background-color: #3498db;">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="project-image" style="background-color:#3498db;"><i class="fas fa-chart-line"></i></div>
                     <div class="project-content">
-                        <h3 data-fr="Tableau de Bord des trajets de taxi de NYC New York City" 
-                            data-en="NYC New York City Taxi Trips Dashboard">
-                            Tableau de Bord des trajets de taxi de NYC New York City
+                        <h3 data-fr="Tableau de Bord des trajets de taxi de NYC" data-en="NYC Taxi Trips Dashboard">
+                            Tableau de Bord des trajets de taxi de NYC
                         </h3>
-                        <p data-fr="Création d'un tableau de bord interactif pour le suivi des performances et d'un tableau de bord prédictif." 
+                        <p data-fr="Création d'un tableau de bord interactif pour le suivi des performances et d'un tableau de bord prédictif."
                            data-en="Creation of an interactive dashboard for performance tracking and a predictive dashboard.">
                            Création d'un tableau de bord interactif pour le suivi des performances et d'un tableau de bord prédictif.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Looker Studio</span>
                             <span class="project-tag">SQL</span>
-                            <span class="project-tag">Biquery</span>
-                            <span class="project-tag">BiqueryMl</span>
+                            <span class="project-tag">BigQuery</span>
+                            <span class="project-tag">BigQueryML</span>
                         </div>
-                        <a href="https://lookerstudio.google.com/reporting/97d07af6-e8dd-4bfb-aa64-93191da8271b/page/g6rIF" class="btn" 
+                        <a href="https://lookerstudio.google.com/reporting/97d07af6-e8dd-4bfb-aa64-93191da8271b/page/g6rIF" class="btn"
                            data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image" style="background-color: #1abc9c;">
-                        <i class="fas fa-database"></i>
-                    </div>
+                    <div class="project-image" style="background-color:#1abc9c;"><i class="fas fa-database"></i></div>
                     <div class="project-content">
-                        <h3 data-fr="Pipeline de données ETL" data-en="ETL Data Pipeline">Pipeline de données ETL</h3>
-                        <p data-fr="Pipeline ELT complet pour l'ingestion, la transformation et l'analyse des données des taxis verts de NYC, avec modélisation ML dans BigQuery." 
+                        <h3 data-fr="Pipeline de données ELT" data-en="ELT Data Pipeline">Pipeline de données ELT</h3>
+                        <p data-fr="Pipeline ELT complet pour l'ingestion, la transformation et l'analyse des données des taxis verts de NYC, avec modélisation ML dans BigQuery."
                            data-en="Complete ELT pipeline for ingestion, transformation and analysis of NYC green taxi data, with ML modeling in BigQuery.">
                            Pipeline ELT complet pour l'ingestion, la transformation et l'analyse des données des taxis verts de NYC, avec modélisation ML dans BigQuery.
                         </p>
@@ -999,77 +434,72 @@
                             <span class="project-tag">BigQuery</span>
                             <span class="project-tag">GCP</span>
                             <span class="project-tag">DAG</span>
-                            <span class="project-tag">Machine learning BigqueryML</span>
+                            <span class="project-tag">BigQueryML</span>
                         </div>
-                        <a href="https://github.com/wouangre/gcp_data_engineering_elt_pipeline_nyc_green_taxis" class="btn" target="_blank" 
+                        <a href="https://github.com/wouangre/gcp_data_engineering_elt_pipeline_nyc_green_taxis" class="btn" target="_blank"
                            data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image" style="background-color: #e74c3c;">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
+                    <div class="project-image" style="background-color:#e74c3c;"><i class="fas fa-chart-pie"></i></div>
                     <div class="project-content">
-                        <h3 data-fr="Les partitions dans Bigquery" data-en="Partitions in Bigquery">Les partitions dans Bigquery</h3>
-                        <p data-fr="Projet Bigquery DDL DML avec partitions par date." 
-                           data-en="Bigquery DDL DML project with date partitions.">
-                           Projet Bigquery DDL DML avec partitions par date.
+                        <h3 data-fr="Les partitions dans BigQuery" data-en="Partitions in BigQuery">Les partitions dans BigQuery</h3>
+                        <p data-fr="Projet BigQuery DDL/DML avec partitions par date."
+                           data-en="BigQuery DDL/DML project with date partitions.">
+                           Projet BigQuery DDL/DML avec partitions par date.
                         </p>
                         <div class="project-tags">
-                            <span class="project-tag">Bigquery</span>
+                            <span class="project-tag">BigQuery</span>
                             <span class="project-tag">Partitions</span>
                             <span class="project-tag">Performance</span>
-                            <span class="project-tag">DML DDL</span>
+                            <span class="project-tag">DML/DDL</span>
                         </div>
-                        <a href="https://github.com/wouangre/My-Bigquery-DDL-DML-project-with-date-partition" class="btn" 
+                        <a href="https://github.com/wouangre/My-Bigquery-DDL-DML-project-with-date-partition" class="btn"
                            data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image" style="background-color: #e74c3c;">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
+                    <div class="project-image" style="background-color:#9b59b6;"><i class="fas fa-fire"></i></div>
                     <div class="project-content">
-                        <h3 data-fr="Analyse exploratoire via Pyspark" data-en="Exploratory Analysis via Pyspark">Analyse exploratoire via Pyspark</h3>
-                        <p data-fr="Analyse de données sur les crimes ayant été commis à Chicago depuis 2001 à août 2024. Le fichier CSV téléchargé comporte plus de 8 millions de lignes. On utilisera Pyspark pour sa rapidité sur Pandas." 
-                           data-en="Data analysis on crimes committed in Chicago from 2001 to August 2024. The downloaded CSV file contains over 8 million rows. We will use Pyspark for its speed over Pandas.">
-                           Analyse de données sur les crimes ayant été commis à Chicago depuis 2001 à août 2024. Le fichier CSV téléchargé comporte plus de 8 millions de lignes. On utilisera Pyspark pour sa rapidité sur Pandas.
+                        <h3 data-fr="Analyse exploratoire via PySpark" data-en="Exploratory Analysis via PySpark">Analyse exploratoire via PySpark</h3>
+                        <p data-fr="Analyse de données sur les crimes commis à Chicago de 2001 à août 2024 (plus de 8 millions de lignes) avec PySpark."
+                           data-en="Data analysis on crimes committed in Chicago from 2001 to August 2024 (over 8 million rows) using PySpark.">
+                           Analyse de données sur les crimes commis à Chicago de 2001 à août 2024 (plus de 8 millions de lignes) avec PySpark.
                         </p>
                         <div class="project-tags">
-                            <span class="project-tag">Pyspark</span>
+                            <span class="project-tag">PySpark</span>
                             <span class="project-tag">Python</span>
-                            <span class="project-tag">Dataframe</span>
+                            <span class="project-tag">DataFrame</span>
                         </div>
-                        <a href="https://github.com/wouangre/Pyspark/tree/main" class="btn" 
+                        <a href="https://github.com/wouangre/Pyspark/tree/main" class="btn"
                            data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
-                
+
                 <div class="project-card">
-                    <div class="project-image" style="background-color: #e74c3c;">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
+                    <div class="project-image" style="background-color:#e67e22;"><i class="fas fa-robot"></i></div>
                     <div class="project-content">
-                        <h3 data-fr="Déploiement d'un modèle de machine learning sur FastAPI" 
-                            data-en="Deployment of a machine learning model on FastAPI">
-                            Déploiement d'un modèle de machine learning sur FastAPI
+                        <h3 data-fr="Déploiement d'un modèle ML sur FastAPI"
+                            data-en="Deployment of a ML model on FastAPI">
+                            Déploiement d'un modèle ML sur FastAPI
                         </h3>
-                        <p data-fr="Notre modèle de classification cherche à prédire une espèce de fleur en fonction de ses caractéristiques : longueur et largeur du calice et des pétales." 
-                           data-en="Our classification model seeks to predict a flower species based on its characteristics: sepal and petal length and width.">
-                           Notre modèle de classification cherche à prédire une espèce de fleur en fonction de ses caractéristiques : longueur et largeur du calice et des pétales.
+                        <p data-fr="Modèle de classification pour prédire une espèce de fleur selon ses caractéristiques (longueur/largeur du calice et des pétales)."
+                           data-en="Classification model to predict a flower species based on its characteristics (sepal and petal length/width).">
+                           Modèle de classification pour prédire une espèce de fleur selon ses caractéristiques (longueur/largeur du calice et des pétales).
                         </p>
                         <div class="project-tags">
-                            <span class="project-tag" data-fr="Bibliothèques sklearn, numpy, joblib" data-en="Libraries sklearn, numpy, joblib">Bibliothèques sklearn, numpy, joblib</span>
+                            <span class="project-tag" data-fr="sklearn, numpy, joblib" data-en="sklearn, numpy, joblib">sklearn, numpy, joblib</span>
                             <span class="project-tag">Python</span>
-                            <span class="project-tag" data-fr="Modèle de regression logistique" data-en="Logistic regression model">Modèle de regression logistique</span>
+                            <span class="project-tag" data-fr="Régression logistique" data-en="Logistic Regression">Régression logistique</span>
                             <span class="project-tag">FastAPI</span>
                         </div>
-                        <a href="https://github.com/wouangre/deployment-of-a-machine-learning-model-through-fastAPI/tree/main" class="btn" 
+                        <a href="https://github.com/wouangre/deployment-of-a-machine-learning-model-through-fastAPI/tree/main" class="btn"
                            data-fr="Voir le projet" data-en="View project">Voir le projet</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1081,93 +511,96 @@
                 <h2 data-fr="Mon Expérience" data-en="My Experience">Mon Expérience</h2>
             </div>
             <div class="timeline">
+
+                <!-- 1 - Consultant Data Senior -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3 data-fr="Consultant Data Senior" data-en="Senior Data Consultant">Consultant Data Senior</h3>
                         <div class="date" data-fr="2023 - Présent" data-en="2023 - Present">2023 - Présent</div>
-                        <p data-fr="Conception et mise en œuvre de solutions data pour divers clients, incluant la création de pipelines de données, le développement de tableaux de bord et l'analyse de données." 
+                        <p data-fr="Conception et mise en œuvre de solutions data pour divers clients, incluant la création de pipelines de données, le développement de tableaux de bord et l'analyse de données."
                            data-en="Design and implementation of data solutions for various clients, including data pipeline creation, dashboard development and data analysis.">
                            Conception et mise en œuvre de solutions data pour divers clients, incluant la création de pipelines de données, le développement de tableaux de bord et l'analyse de données.
                         </p>
-                        <p><strong data-fr="Technologies:" data-en="Technologies:">Technologies:</strong> GCP, Apache Airflow, BigQuery, Looker Studio, python</p>
+                        <p><strong data-fr="Technologies :" data-en="Technologies:">Technologies :</strong> GCP, Apache Airflow, BigQuery, Looker Studio, Python</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Data Engineer</h3>
-                        <div class="date">2017 - 2024</div>
-                        <p data-fr="Développement et maintenance de pipelines de données, optimisation des processus ETL et collaboration avec les équipes d'analyse pour fournir des données de qualité." 
-                           data-en="Development and maintenance of data pipelines, ETL process optimization and collaboration with analysis teams to provide quality data.">
-                           Développement et maintenance de pipelines de données, optimisation des processus ETL et collaboration avec les équipes d'analyse pour fournir des données de qualité.
-                        </p>
-                        <p><strong data-fr="Technologies:" data-en="Technologies:">Technologies:</strong> Talend, Teradata, GCP, Bigquery, SQL, Dataproc, Mysql, Siebel, AS400, DB2, Oracle, Shell, MSSQL server, TAC Talend</p>
-                    </div>
-                </div>
+
+                <!-- 2 - Data Analyst -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Data Analyst</h3>
                         <div class="date">2024 - 2025</div>
-                        <p data-fr="Analyse de données business, création de rapports et tableaux de bord, et support à la prise de décision stratégique." 
+                        <p data-fr="Analyse de données business, création de rapports et tableaux de bord, et support à la prise de décision stratégique."
                            data-en="Business data analysis, report and dashboard creation, and support for strategic decision-making.">
                            Analyse de données business, création de rapports et tableaux de bord, et support à la prise de décision stratégique.
                         </p>
-                        <p><strong data-fr="Technologies:" data-en="Technologies:">Technologies:</strong> Maximo, Birt, SQL, IntelliJ, Java, Javascript</p>
+                        <p><strong data-fr="Technologies :" data-en="Technologies:">Technologies :</strong> Maximo, Birt, SQL, IntelliJ, Java, Javascript</p>
                     </div>
                 </div>
-            </div>
-        </div>
-		
-		
-                <!-- Nouvelle expérience AKUO ENERGY -->
+
+                <!-- 3 - Data Engineer -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3 data-fr="Référent Systèmes de Gestion – AKUO ENERGY" 
+                        <h3>Data Engineer</h3>
+                        <div class="date">2017 - 2024</div>
+                        <p data-fr="Développement et maintenance de pipelines de données, optimisation des processus ETL et collaboration avec les équipes d'analyse pour fournir des données de qualité."
+                           data-en="Development and maintenance of data pipelines, ETL process optimization and collaboration with analysis teams to provide quality data.">
+                           Développement et maintenance de pipelines de données, optimisation des processus ETL et collaboration avec les équipes d'analyse pour fournir des données de qualité.
+                        </p>
+                        <p><strong data-fr="Technologies :" data-en="Technologies:">Technologies :</strong> Talend, Teradata, GCP, BigQuery, SQL, Dataproc, MySQL, Siebel, AS400, DB2, Oracle, Shell, MSSQL Server, TAC Talend</p>
+                    </div>
+                </div>
+
+                <!-- 4 - AKUO ENERGY -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-fr="Référent Systèmes de Gestion – AKUO ENERGY"
                             data-en="Management Systems Consultant – AKUO ENERGY">
                             Référent Systèmes de Gestion – AKUO ENERGY
                         </h3>
-                        <div class="date" data-fr="2010 - 2014" data-en="2010 - 2014">2010 - 2014</div>
-                        <p data-fr="Mise en place du Système de Gestion Informatique pour un groupe d'énergies renouvelables en forte croissance, avec des données projets dispersées (Excel, fichiers locaux) et besoin d'un système de gestion centralisé." 
+                        <div class="date" data-fr="Avril 2010 – Mai 2014" data-en="April 2010 – May 2014">Avril 2010 – Mai 2014</div>
+                        <p data-fr="Mise en place du Système de Gestion Informatique pour un groupe d'énergies renouvelables en forte croissance, avec des données projets dispersées (Excel, fichiers locaux) et besoin d'un système de gestion centralisé."
                            data-en="Implementation of the IT Management System for a fast-growing renewable energy group, with scattered project data (Excel, local files) and the need for a centralized management system.">
                            Mise en place du Système de Gestion Informatique pour un groupe d'énergies renouvelables en forte croissance, avec des données projets dispersées (Excel, fichiers locaux) et besoin d'un système de gestion centralisé.
                         </p>
                         <ul>
-                            <li data-fr="Analyse de l'existant (business plans, fichiers financiers, documents projets)." 
+                            <li data-fr="Analyse de l'existant (business plans, fichiers financiers, documents projets)."
                                 data-en="Analysis of the existing situation (business plans, financial files, project documents).">
                                 Analyse de l'existant (business plans, fichiers financiers, documents projets).
                             </li>
-                            <li data-fr="Conception d'une base de données Access pour les différentes participations et holdings." 
+                            <li data-fr="Conception d'une base de données Access pour les différentes participations et holdings."
                                 data-en="Design of an Access database for the different holdings and participations.">
                                 Conception d'une base de données Access pour les différentes participations et holdings.
                             </li>
-                            <li data-fr="Développement de premiers rapports de business plans (construction, développement, investissement) en VBA et SQL." 
-                                data-en="Development of first business plan reports (construction, development, investment) using VBA and SQL.">
-                                Développement de premiers rapports de business plans (construction, développement, investissement) en VBA et SQL.
+                            <li data-fr="Développement de rapports de business plans (construction, développement, investissement) en VBA et SQL."
+                                data-en="Development of business plan reports (construction, development, investment) using VBA and SQL.">
+                                Développement de rapports de business plans (construction, développement, investissement) en VBA et SQL.
                             </li>
-                            <li data-fr="Déploiement du progiciel VDoc Process Java pour automatiser la circulation de documents entre services." 
+                            <li data-fr="Déploiement du progiciel VDoc Process Java pour automatiser la circulation de documents entre services."
                                 data-en="Deployment of the VDoc Process Java solution to automate document workflows between departments.">
                                 Déploiement du progiciel VDoc Process Java pour automatiser la circulation de documents entre services.
                             </li>
-                            <li data-fr="Rédaction de la documentation technique et fonctionnelle, et présentation des résultats et recommandations à la direction." 
-                                data-en="Writing of technical and functional documentation, and presentation of results and recommendations to top management.">
-                                Rédaction de la documentation technique et fonctionnelle, et présentation des résultats et recommandations à la direction.
+                            <li data-fr="Rédaction de la documentation technique et fonctionnelle ; présentation des résultats à la direction."
+                                data-en="Writing of technical and functional documentation; presentation of results and recommendations to top management.">
+                                Rédaction de la documentation technique et fonctionnelle ; présentation des résultats à la direction.
                             </li>
-                            <li data-fr="Prototype fonctionnel du futur système de gestion utilisé comme base pour les missions suivantes, validation du concept par la direction et lancement du projet de déploiement." 
-                                data-en="Delivered a functional prototype of the future management system, used as a basis for subsequent missions; concept validated by management and deployment project launched.">
-                                Prototype fonctionnel du futur système de gestion utilisé comme base pour les missions suivantes, validation du concept par la direction et lancement du projet de déploiement.
+                            <li data-fr="Prototype fonctionnel validé par la direction, utilisé comme base pour les missions suivantes."
+                                data-en="Functional prototype validated by management, used as a basis for subsequent missions.">
+                                Prototype fonctionnel validé par la direction, utilisé comme base pour les missions suivantes.
                             </li>
                         </ul>
-                        <p>
-                            <strong data-fr="Environnement technique :" data-en="Technical environment:">
-                                Environnement technique :
-                            </strong>
-                            <span data-fr="VBA, Access, Java, Javascript, JSP, JBoss, SQL, VDoc Process Java, Windows, Gantt"
-                                  data-en="VBA, Access, Java, Javascript, JSP, JBoss, SQL, VDoc Process Java, Windows, Gantt">
-                                VBA, Access, Java, Javascript, JSP, JBoss, SQL, Progciel VDoc Process Java, Windows, Gantt, Workflow, Talend
+                        <p style="margin-top:10px;">
+                            <strong data-fr="Environnement technique :" data-en="Technical environment:">Environnement technique :</strong>
+                            <span data-fr="VBA, Access, Java, Javascript, JSP, JBoss, SQL, VDoc Process Java, Windows, Gantt, Workflow, Talend"
+                                  data-en="VBA, Access, Java, Javascript, JSP, JBoss, SQL, VDoc Process Java, Windows, Gantt, Workflow, Talend">
+                                VBA, Access, Java, Javascript, JSP, JBoss, SQL, VDoc Process Java, Windows, Gantt, Workflow, Talend
                             </span>
                         </p>
                     </div>
                 </div>
-                <!-- Fin nouvelle expérience AKUO ENERGY -->
+
+            </div><!-- end timeline -->
+        </div>
     </section>
 
     <!-- Contact Section -->
@@ -1179,16 +612,13 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <h3 data-fr="Travaillons ensemble" data-en="Let's work together">Travaillons ensemble</h3>
-                    <p data-fr="N'hésitez pas à me contacter pour discuter de vos projets data ou pour toute opportunité de collaboration." 
+                    <p data-fr="N'hésitez pas à me contacter pour discuter de vos projets data ou pour toute opportunité de collaboration."
                        data-en="Feel free to contact me to discuss your data projects or any collaboration opportunities.">
                        N'hésitez pas à me contacter pour discuter de vos projets data ou pour toute opportunité de collaboration.
                     </p>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>wouangre@kemkhet.com</p>
-                        </div>
+                        <div><h4>Email</h4><p>wouangre@kemkhet.com</p></div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -1231,7 +661,7 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn" id="submitBtn" 
+                        <button type="submit" class="btn" id="submitBtn"
                                 data-fr="Envoyer le message" data-en="Send message">Envoyer le message</button>
                     </form>
                 </div>
@@ -1250,156 +680,87 @@
                 </div>
             </div>
             <div class="copyright">
-                <p data-fr="&copy; 2025 WOUANGRE Vincent. Tous droits réservés." 
-                   data-en="&copy; 2025 WOUANGRE Vincent. All rights reserved.">&copy; 2025 WOUANGRE Vincent. Tous droits réservés.</p>
+                <p data-fr="© 2025 WOUANGRE Vincent. Tous droits réservés."
+                   data-en="© 2025 WOUANGRE Vincent. All rights reserved.">© 2025 WOUANGRE Vincent. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Language Switcher
         let currentLang = 'fr';
 
         function switchLanguage(lang) {
             currentLang = lang;
             document.documentElement.lang = lang;
-            
-            // Update button states
             document.getElementById('btnFr').classList.toggle('active', lang === 'fr');
             document.getElementById('btnEn').classList.toggle('active', lang === 'en');
-            
-            // Update all translatable elements
-            document.querySelectorAll('[data-fr][data-en]').forEach(element => {
-                const text = element.getAttribute(`data-${lang}`);
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = text;
+            document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
                 } else {
-                    element.textContent = text;
+                    el.textContent = text;
                 }
             });
-            
-            // Save preference
             localStorage.setItem('preferredLanguage', lang);
         }
 
-        // Load saved language preference
         window.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
-            if (savedLang !== 'fr') {
-                switchLanguage(savedLang);
-            }
+            if (savedLang !== 'fr') switchLanguage(savedLang);
         });
 
-        // Navigation mobile
+        // Mobile nav
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Fermer le menu mobile en cliquant sur un lien
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
-        // Animation des barres de compétences au défilement
+        // Skill bar animation
         const skillBars = document.querySelectorAll('.skill-progress');
-      
         function animateSkillBars() {
             skillBars.forEach(bar => {
-                const width = bar.style.width;
+                const w = bar.style.width;
                 bar.style.width = '0';
-              
-                setTimeout(() => {
-                    bar.style.transition = 'width 1.5s ease-in-out';
-                    bar.style.width = width;
-                }, 200);
+                setTimeout(() => { bar.style.transition = 'width 1.5s ease-in-out'; bar.style.width = w; }, 200);
             });
         }
-
-        // Observer pour déclencher l'animation des compétences
         const skillsSection = document.querySelector('.skills');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkillBars();
-                    observer.unobserve(entry.target);
-                }
-            });
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if (entry.isIntersecting) { animateSkillBars(); observer.unobserve(entry.target); } });
         }, { threshold: 0.3 });
-
         observer.observe(skillsSection);
 
-        // Gestion du formulaire de contact avec Formspree
+        // Contact form
         const form = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
         const submitBtn = document.getElementById('submitBtn');
-
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            const messages = {
-                fr: {
-                    sending: 'Envoi en cours...',
-                    success: '✓ Merci pour votre message! Je vous répondrai dans les plus brefs délais.',
-                    error: '✗ Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement à wouangre@kemkhet.com',
-                    send: 'Envoyer le message'
-                },
-                en: {
-                    sending: 'Sending...',
-                    success: '✓ Thank you for your message! I will respond as soon as possible.',
-                    error: '✗ An error occurred while sending the message. Please try again or contact me directly at wouangre@kemkhet.com',
-                    send: 'Send message'
-                }
+            const msgs = {
+                fr: { sending: 'Envoi en cours...', success: '✓ Merci pour votre message ! Je vous répondrai dans les plus brefs délais.', error: '✗ Une erreur est survenue. Veuillez réessayer ou me contacter à wouangre@kemkhet.com', send: 'Envoyer le message' },
+                en: { sending: 'Sending...', success: '✓ Thank you for your message! I will respond as soon as possible.', error: '✗ An error occurred. Please try again or contact me at wouangre@kemkhet.com', send: 'Send message' }
             };
-            
-            // Désactiver le bouton pendant l'envoi
             submitBtn.disabled = true;
-            submitBtn.textContent = messages[currentLang].sending;
-            
-            // Récupérer les données du formulaire
+            submitBtn.textContent = msgs[currentLang].sending;
             const formData = new FormData(form);
-            
             try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
+                const response = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
                 if (response.ok) {
-                    // Afficher le message de succès
-                    formMessage.textContent = messages[currentLang].success;
+                    formMessage.textContent = msgs[currentLang].success;
                     formMessage.className = 'form-message success';
-                    
-                    // Réinitialiser le formulaire
                     form.reset();
-                    
-                    // Masquer le message après 5 secondes
-                    setTimeout(() => {
-                        formMessage.style.display = 'none';
-                    }, 5000);
-                } else {
-                    throw new Error('Erreur lors de l\'envoi');
-                }
-            } catch (error) {
-                // Afficher le message d'erreur
-                formMessage.textContent = messages[currentLang].error;
+                    setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+                } else { throw new Error(); }
+            } catch {
+                formMessage.textContent = msgs[currentLang].error;
                 formMessage.className = 'form-message error';
-                
-                // Masquer le message après 7 secondes
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 7000);
+                setTimeout(() => { formMessage.style.display = 'none'; }, 7000);
             } finally {
-                // Réactiver le bouton
                 submitBtn.disabled = false;
-                submitBtn.textContent = messages[currentLang].send;
+                submitBtn.textContent = msgs[currentLang].send;
             }
         });
     </script>
